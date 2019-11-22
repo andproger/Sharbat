@@ -27,6 +27,6 @@
         app:itemIconTint="@android:color/black"
         app:itemTextColor="@android:color/black"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/activity_main_drawer" />
+        app:menu="@menu/activity_main_bottom" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

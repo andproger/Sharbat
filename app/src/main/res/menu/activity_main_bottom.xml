@@ -4,15 +4,17 @@
         <item
             android:id="@+id/menu_my_events"
             android:icon="@drawable/ic_menu_share"
-            android:title="@string/menu_share" />
+            android:title="@string/empty" />
+
         <item
             android:id="@+id/menu_all_events"
             android:checked="true"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_home"/>
+            android:title="@string/empty" />
+
         <item
             android:id="@+id/menu_account"
             android:icon="@drawable/ic_menu_share"
-            android:title="@string/menu_share" />
+            android:title="@string/empty" />
     </group>
 </menu>
