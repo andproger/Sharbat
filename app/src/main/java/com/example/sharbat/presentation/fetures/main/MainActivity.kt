@@ -33,8 +33,8 @@ class MainActivity : AppCompatActivity() {
 
         bottomNavigation.setOnNavigationItemSelectedListener { item ->
             viewPager.currentItem = when (item.itemId) {
-                R.id.menu_all_events -> 0
-                R.id.menu_my_events -> 1
+                R.id.menu_my_events -> 0
+                R.id.menu_all_events -> 1
                 R.id.menu_account -> 2
                 else -> -1
             }
