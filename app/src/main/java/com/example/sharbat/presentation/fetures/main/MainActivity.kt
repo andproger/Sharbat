@@ -5,9 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
 import com.example.sharbat.R
 import com.example.sharbat.data.adapter.CustomPagerAdapter
-import com.example.sharbat.presentation.fetures.events.AllEventsFragment
-import com.example.sharbat.presentation.fetures.share.MyEventsFragment
-import com.example.sharbat.presentation.fetures.slideshow.AccountFragment
+import com.example.sharbat.presentation.fetures.events.all.AllEventsFragment
+import com.example.sharbat.presentation.fetures.events.my.MyEventsFragment
+import com.example.sharbat.presentation.fetures.account.AccountFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 

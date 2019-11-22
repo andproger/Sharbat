@@ -6,7 +6,7 @@ import io.reactivex.Observable
 
 class GetAllEventsInteractorImpl(
     private val eventsRepository: EventsRepository
-) : GetAllEventsInteractor {
+) : GetEventsInteractor {
     override fun get(): Observable<List<Event>> {
         return eventsRepository.getAllWithUpdates()
     }
