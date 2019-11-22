@@ -1,17 +1,18 @@
 package com.example.sharbat.data.db
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
-import com.example.sharbat.data.db.model.EventDataModel
+import androidx.room.*
+import com.example.sharbat.data.db.model.EventModel
+import io.reactivex.Flowable
 import io.reactivex.Single
 
 @Dao
 interface EventDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun saveEvents(q: List<EventDataModel>)
+    fun saveEvents(list: List<EventModel>)
 
-    @Query("SELECT * FROM EventDataModel")
-    suspend fun getEvents(): Single<List<EventDataModel>>
+    @Query("SELECT * FROM EventModel")
+    fun getEvents(): Flowable<List<EventModel>> // todo
+
+    @Query("DELETE FROM eventmodel WHERE time_event < :time")
+    fun deleteEventsByTime(time: String): Int
 }
