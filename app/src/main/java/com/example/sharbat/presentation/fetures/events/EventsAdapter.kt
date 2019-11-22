@@ -1,4 +1,4 @@
-package com.example.sharbat.presentation.ui.events
+package com.example.sharbat.presentation.fetures.events
 
 import android.view.View
 import android.view.ViewGroup

@@ -8,19 +8,19 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.example.sharbat.presentation.ui.home.HomeFragment"
+        android:name="com.example.sharbat.presentation.fetures.events.AllEventsFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_all_events" />
 
      <fragment
         android:id="@+id/nav_slideshow"
-        android:name="com.example.sharbat.presentation.ui.slideshow.SlideshowFragment"
+        android:name="com.example.sharbat.presentation.fetures.slideshow.AccountFragment"
         android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_account" />
 
     <fragment
         android:id="@+id/nav_share"
-        android:name="com.example.sharbat.presentation.ui.share.ShareFragment"
+        android:name="com.example.sharbat.presentation.fetures.share.MyEventsFragment"
         android:label="@string/menu_share"
-        tools:layout="@layout/fragment_share" />
+        tools:layout="@layout/fragment_my_events" />
 </navigation>
