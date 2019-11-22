@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class ClientApiFactory {
 
     companion object {
-        private const val BASE_URL = "http://"
+        private const val BASE_URL = "http://232132"
 
         fun createRestApi() = createRetrofit(
             createOkHttpClient(createLogging())
