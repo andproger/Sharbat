@@ -1,4 +1,4 @@
-package com.example.sharbat.domain
+package com.example.sharbat.presentation.utils
 
 import androidx.recyclerview.widget.DiffUtil
 

@@ -1,19 +1,22 @@
-package com.example.sharbat.domain
+package com.example.sharbat.presentation.ui.events
 
-import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
 import android.view.View
+import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.RecyclerView
 import com.example.sharbat.R
+import com.example.sharbat.presentation.utils.DiffUtilCallback
+import com.example.sharbat.presentation.utils.inflate
 
 class EventsAdapter(
-    val onItemClicked: (String) -> Unit
+    private val onItemClicked: (Int) -> Unit
 ) : RecyclerView.Adapter<EventsAdapter.EventViewHolder>() {
 
     private val items = mutableListOf<EventViewState>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventViewHolder {
-        return EventViewHolder(parent.inflate(R.layout.list_item_zone), onItemClicked)
+        val view = parent.inflate(R.layout.item_event)
+        return EventViewHolder(view, onItemClicked)
     }
 
     override fun getItemCount() = items.size
@@ -23,16 +26,22 @@ class EventsAdapter(
     }
 
     fun update(newItems: List<EventViewState>) {
-        val result = DiffUtil.calculateDiff(DiffUtilCallback(items, newItems) { })
+        val result = DiffUtil.calculateDiff(
+            DiffUtilCallback(
+                items,
+                newItems
+            ) { })
         items.clear()
         items.addAll(newItems)
         result.dispatchUpdatesTo(this)
     }
 
-    inner class EventViewHolder(itemView: View, val onItemClicked: (String) -> Unit) :
-        RecyclerView.ViewHolder(itemView) {
+    inner class EventViewHolder(
+        itemView: View,
+        val onItemClicked: (Int) -> Unit
+    ) : RecyclerView.ViewHolder(itemView) {
+
         private var model: EventViewState? = null
-        //private val emptyDescription by lazy { getString(R.string.activity_choose_zone_empty_description) }
 
         init {
             itemView.setOnClickListener {
@@ -50,14 +59,7 @@ class EventsAdapter(
         private fun onModelUpdated() {
             model?.let { model ->
                 itemView.apply {
-                    //                    val warehouseDescription = model.warehouseDescription ?: emptyDescription
-//                    val zoneDescription = model.description ?: emptyDescription
-//                    textViewZoneDescription.text = if (model.showWarehouse) {
-//                        "$warehouseDescription / $zoneDescription"
-//                    } else {
-//                        zoneDescription
-//                    }
-                    //todo
+                    //todo update view
                 }
             }
         }
