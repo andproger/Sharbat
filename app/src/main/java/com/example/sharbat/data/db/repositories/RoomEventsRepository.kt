@@ -1,6 +1,6 @@
 package com.example.sharbat.data.db.repositories
 
-import com.example.sharbat.data.db.EventDao
+import com.example.sharbat.data.db.datastores.EventDao
 import com.example.sharbat.data.db.model.EventModel
 import com.example.sharbat.domain.entities.Event
 import com.example.sharbat.domain.gateways.EventsRepository
@@ -17,15 +17,21 @@ class RoomEventsRepository(
     }
 
     override fun getAllWithUpdates(): Observable<List<Event>> {
-        return dao.getEvents().toObservable().map { list ->
+        return dao.getEventsWithUpdates().toObservable().map { list ->
             list.map { it.toCore() }
         }
     }
 
-    override fun getByIdWithUpdates(id: String): Single<Event> {
-        return dao.getEvent(id).flatMapSingle {
-            Single.just(it.toCore())
-        }
+    override fun getById(id: String): Event {
+        return dao.getEvent(id).toCore()
+    }
+
+    override fun getByIdWithUpdates(id: String): Observable<Event> {
+        return dao.getEventsWithUpdates()
+            .toObservable()
+            .map { list ->
+                list.first { it.id == id }.toCore()
+            }
     }
 
     fun Event.toDataModel() = EventModel(

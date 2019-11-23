@@ -10,5 +10,7 @@ interface EventsRepository {
 
     fun getAllWithUpdates(): Observable<List<Event>>
 
-    fun getByIdWithUpdates(id: String): Single<Event>
+    fun getById(id: String): Event
+
+    fun getByIdWithUpdates(id: String): Observable<Event>
 }
