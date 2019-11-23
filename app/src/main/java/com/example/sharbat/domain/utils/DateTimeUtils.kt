@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 fun Date.toDateText(): String {
-    return SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(this);
+    return SimpleDateFormat("dd MMMM", Locale.getDefault()).format(this);
 }
 
 fun Date.toTimeText(): String {

@@ -22,6 +22,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="22 Nov"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -30,6 +32,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="16.00"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="@id/textViewDate"
             app:layout_constraintTop_toBottomOf="@id/textViewDate" />
 
@@ -39,23 +43,28 @@
             android:layout_height="wrap_content"
             android:singleLine="true"
             android:text="SPACE hubEvent lElabel"
-            app:layout_constraintStart_toStartOf="@id/textViewDate"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:layout_marginBottom="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/textViewDate" />
 
         <TextView
             android:id="@+id/textViewTitle"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:lines="3"
-            android:textAlignment="textEnd"
-            android:text="Event nt  lab label"
-            android:textStyle="bold"
             android:layout_marginStart="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/textViewDate"
-            app:layout_constraintStart_toEndOf="@id/textViewDate"
+            android:ellipsize="end"
+            android:lines="3"
+            android:text="Event nt  lab label"
+            android:textAlignment="textEnd"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@id/textViewPlace"
-            android:ellipsize="end"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/textViewDate"
+            app:layout_constraintTop_toTopOf="@id/textViewDate" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
