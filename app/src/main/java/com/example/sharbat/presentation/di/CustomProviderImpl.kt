@@ -3,12 +3,12 @@ package com.example.sharbat.presentation.di
 import android.content.Context
 import androidx.room.Room
 import com.example.sharbat.data.db.AppDatabase
+import com.example.sharbat.data.db.repositories.RoomEventsRepository
 import com.example.sharbat.data.network.ClientApiFactory
 import com.example.sharbat.data.network.ClientApi
 import com.example.sharbat.domain.entities.Event
 import com.example.sharbat.domain.gateways.EventsRepository
-import com.example.sharbat.domain.interactors.events.GetAllEventsInteractorImpl
-import com.example.sharbat.domain.interactors.events.GetEventsInteractor
+import com.example.sharbat.domain.interactors.events.*
 import io.reactivex.Observable
 
 class CustomProviderImpl(
@@ -17,6 +17,7 @@ class CustomProviderImpl(
 
     private lateinit var appDatabase: AppDatabase
     private lateinit var clientApi: ClientApi
+
     private val eventsRepository by lazy { createEventsRepository() }
 
     init {
@@ -35,9 +36,14 @@ class CustomProviderImpl(
     }
 
     override fun provideGetMyEventsInteractor(): GetEventsInteractor {
-        //TODO my events
-        return GetAllEventsInteractorImpl(
+        return GetMyEventsInteractorImpl(
             eventsRepository
+        )
+    }
+
+    override fun provideRefreshEventsInteractor(): RefreshEventsInteractor {
+        return RefreshEventsInteractorImpl(
+            clientApi, eventsRepository
         )
     }
 
@@ -51,48 +57,6 @@ class CustomProviderImpl(
     }
 
     private fun createEventsRepository(): EventsRepository {
-        return object : EventsRepository {
-            override fun save(events: List<Event>) {
-
-            }
-
-            override fun getAll(): List<Event> {
-                return emptyList()
-            }
-
-            override fun getAllWithUpdates(): Observable<List<Event>> {
-                return Observable.fromCallable {
-                    listOf(
-                        Event(
-                            1,
-                            "1",
-                            "",
-                            "p1",
-                            "",
-                            1L,
-                            1L
-                        ),
-                        Event(
-                            1,
-                            "2",
-                            "",
-                            "p2",
-                            "",
-                            1L,
-                            1L
-                        ),
-                        Event(
-                            1,
-                            "3",
-                            "",
-                            "p3",
-                            "",
-                            1L,
-                            1L
-                        )
-                    )
-                }
-            }
-        }
+        return RoomEventsRepository(appDatabase.eventDao())
     }
 }

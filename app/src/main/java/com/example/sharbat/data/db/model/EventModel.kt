@@ -10,14 +10,6 @@ data class EventModel(
     val text: String,
     val time_stamp: String,
     val time_event: String,
-    val image: String
-) //todo
-
-//{
-//    "id": 0,
-//    "title": "qqq",
-//    "text": "qqq",
-//    "time_stamp": 131313131,
-//    "time_event": 123131123
-//    "image": "https://"
-//}
+    val image: String,
+    val place: String
+)

@@ -4,12 +4,13 @@ import com.example.sharbat.BuildConfig
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
 class ClientApiFactory {
 
     companion object {
-        private const val BASE_URL = "http://232132"
+        private const val BASE_URL = "http://192.168.43.81:8000"
 
         fun createRestApi() = createRetrofit(
             createOkHttpClient(createLogging())
@@ -18,6 +19,7 @@ class ClientApiFactory {
         private fun createRetrofit(okHttpClient: OkHttpClient) = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .client(okHttpClient)
             .build()
 

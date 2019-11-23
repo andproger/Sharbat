@@ -7,7 +7,5 @@ interface EventsRepository {
 
     fun save(events: List<Event>)
 
-    fun getAll(): List<Event>
-
     fun getAllWithUpdates(): Observable<List<Event>>
 }
