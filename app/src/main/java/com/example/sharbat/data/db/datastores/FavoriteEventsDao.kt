@@ -14,7 +14,7 @@ interface FavoriteEventsDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun saveEvents(list: List<FavoriteEventModel>)
 
-    @Query("SELECT * FROM FavoriteEventModel WHERE id < :id")
+    @Query("SELECT * FROM FavoriteEventModel WHERE id = :id")
     fun getEventById(id: String): FavoriteEventModel?
 
     @Query("SELECT * FROM FavoriteEventModel")
@@ -26,6 +26,6 @@ interface FavoriteEventsDao {
     @Query("SELECT * FROM FavoriteEventModel WHERE id = :id")
     fun getEvent(id: String): FavoriteEventModel
 
-    @Query("DELETE FROM FavoriteEventModel WHERE id < :id")
+    @Query("DELETE FROM FavoriteEventModel WHERE id = :id")
     fun deleteEvent(id: String): Int
 }

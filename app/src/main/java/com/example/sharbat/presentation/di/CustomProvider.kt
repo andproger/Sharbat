@@ -4,6 +4,7 @@ import com.example.sharbat.data.db.AppDatabase
 import com.example.sharbat.data.network.ClientApi
 import com.example.sharbat.domain.interactors.events.GetEventInteractor
 import com.example.sharbat.domain.interactors.events.GetEventsInteractor
+import com.example.sharbat.domain.interactors.events.MarkAsFavoriteInteractor
 import com.example.sharbat.domain.interactors.events.RefreshEventsInteractor
 
 interface CustomProvider {
@@ -18,4 +19,6 @@ interface CustomProvider {
     fun provideRefreshEventsInteractor(): RefreshEventsInteractor
 
     fun providerGetEventInteractor(): GetEventInteractor
+
+    fun provideMarkAsFavoriteInteractor(): MarkAsFavoriteInteractor
 }

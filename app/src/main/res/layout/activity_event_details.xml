@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.fetures.main.PostActivity">
+    tools:context=".presentation.fetures.details.EventDetailsActivity">
 
     <ImageView
         android:id="@+id/imageEvent"
@@ -36,8 +36,8 @@
         android:layout_width="346dp"
         android:layout_height="290dp"
         android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/whereEvent" />
@@ -50,8 +50,6 @@
         android:layout_marginEnd="48dp"
         android:layout_marginBottom="48dp"
         android:background="@drawable/btn_selector"
-        android:enabled="@{model.startValid}"
-        android:onClick="@{model::onRegistrationStart}"
         android:text="@string/registration"
         android:textColor="@android:color/white"
         android:textSize="18sp"
@@ -61,8 +59,8 @@
 
     <ImageView
         android:id="@+id/starEvent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginTop="36dp"
         android:layout_marginEnd="48dp"
         android:src="@drawable/ic_star"
