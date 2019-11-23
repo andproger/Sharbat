@@ -1,16 +1,14 @@
 package com.example.sharbat.domain.utils
 
+import java.text.SimpleDateFormat
 import java.util.*
 
-
 fun Date.toDateText(): String {
-    //TODO
-    return "13 Dec"
+    return SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(this);
 }
 
 fun Date.toTimeText(): String {
-    //TODO
-    return "16:00"
+    return SimpleDateFormat("HH:mm", Locale.getDefault()).format(this);
 }
 
 fun String.toDate(): Date {

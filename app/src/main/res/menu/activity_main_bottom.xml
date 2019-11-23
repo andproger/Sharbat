@@ -2,19 +2,19 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/menu_my_events"
-            android:icon="@drawable/ic_menu_share"
+            android:id="@+id/menu_star"
+            android:icon="@drawable/ic_star_border"
             android:title="@string/empty" />
 
         <item
-            android:id="@+id/menu_all_events"
+            android:id="@+id/menu_crop"
             android:checked="true"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_crop_din"
             android:title="@string/empty" />
 
         <item
             android:id="@+id/menu_account"
-            android:icon="@drawable/ic_menu_share"
+            android:icon="@drawable/ic_perm_identity"
             android:title="@string/empty" />
     </group>
 </menu>

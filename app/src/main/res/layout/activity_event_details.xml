@@ -19,6 +19,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
         android:layout_marginTop="20dp"
+        android:textSize="20sp"
+        android:textColor="@android:color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageEvent" />
 
@@ -27,17 +29,30 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="30dp"
+        android:textSize="20sp"
+        android:textColor="@android:color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/timeEvent" />
 
     <TextView
+        android:id="@+id/titleEvent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="36dp"
+        android:layout_marginTop="20dp"
+        android:textSize="20sp"
+        android:textColor="@android:color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageEvent" />
+
+    <TextView
         android:id="@+id/textEvent"
         android:layout_width="346dp"
-        android:layout_height="290dp"
+        android:layout_height="260dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="20dp"
         android:layout_marginEnd="32dp"
+        android:layout_marginTop="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/whereEvent" />
@@ -61,10 +76,10 @@
         android:id="@+id/starEvent"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="48dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="36dp"
         android:src="@drawable/ic_star"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageEvent" />
+        app:layout_constraintTop_toBottomOf="@+id/titleEvent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
