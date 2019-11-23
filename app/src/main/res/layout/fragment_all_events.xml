@@ -14,7 +14,7 @@
         android:text="date"
         android:textAllCaps="true"
         android:textColor="@color/colorPrimary"
-        android:textSize="20sp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@id/textViewFilterType"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -28,7 +28,7 @@
         android:text="type"
         android:textAllCaps="true"
         android:textColor="@color/colorPrimary"
-        android:textSize="20sp"
+        android:textSize="18sp"
         app:layout_constraintBaseline_toBaselineOf="@id/textViewFilterDate"
         app:layout_constraintEnd_toEndOf="@id/textViewFilterPlace"
         app:layout_constraintStart_toEndOf="@id/textViewFilterDate" />
@@ -42,7 +42,7 @@
         android:text="place"
         android:textAllCaps="true"
         android:textColor="@color/colorPrimary"
-        android:textSize="20sp"
+        android:textSize="18sp"
         app:layout_constraintBaseline_toBaselineOf="@id/textViewFilterDate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/textViewFilterType" />

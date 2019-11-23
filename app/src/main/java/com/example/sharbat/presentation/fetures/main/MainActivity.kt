@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
                 bottomNavigation.menu.getItem(position).isChecked = true
             }
         })
-
+        bottomNavigation
         bottomNavigation.setOnNavigationItemSelectedListener { item ->
             viewPager.currentItem = when (item.itemId) {
                 R.id.menu_star -> 0
