@@ -6,4 +6,7 @@ interface EventDetailsView {
     fun renderStar(show: Boolean)
 
     fun renderContent(event: Event)
+
+    fun register(link: String?)
+
 }

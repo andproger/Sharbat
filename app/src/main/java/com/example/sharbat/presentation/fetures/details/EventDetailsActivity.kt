@@ -1,5 +1,6 @@
 package com.example.sharbat.presentation.fetures.details
 
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
@@ -9,6 +10,8 @@ import com.example.sharbat.data.db.model.EventModel
 import com.example.sharbat.domain.entities.Event
 import com.example.sharbat.domain.utils.toDateText
 import com.example.sharbat.presentation.app.App
+import com.example.sharbat.presentation.fetures.details.WebUtil.getCustomTabsPackages
+import com.example.sharbat.presentation.fetures.details.WebUtil.launchCustomTab
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_event_details.*
 
@@ -42,11 +45,27 @@ class EventDetailsActivity : AppCompatActivity(), EventDetailsView {
         Picasso.get().load(event.image).into(imageEvent)
     }
 
+    override fun register(link: String?) {
+        link?.let {l ->
+            if (!getCustomTabsPackages(this).isEmpty()) run {
+                launchCustomTab(
+                    this,
+                    Uri.parse(l)
+                )
+            }
+        }
+    }
+
     private fun initViews() {
         starEvent.setOnClickListener {
             presenter?.onStarClicked()
         }
+
+        btnRegistration.setOnClickListener {
+            presenter?.onRegisterClicked()
+        }
     }
+
 
     private fun setupPresenter() {
         val provider = (application as App).getProvider()
@@ -64,4 +83,6 @@ class EventDetailsActivity : AppCompatActivity(), EventDetailsView {
         presenter?.onDestroy()
         super.onDestroy()
     }
+
+
 }

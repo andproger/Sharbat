@@ -1,5 +1,6 @@
 package com.example.sharbat.presentation.fetures.details
 
+import com.example.sharbat.domain.entities.Event
 import com.example.sharbat.domain.interactors.events.GetEventInteractor
 import com.example.sharbat.domain.interactors.events.MarkAsFavoriteInteractor
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -13,12 +14,14 @@ class EventDetailsPresenterImpl(
 ) : EventDetailsPresenter {
 
     private val compositeDisposable = CompositeDisposable()
+    private var event: Event? = null
 
     init {
         getEventInteractor.get(id)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe { eventContract ->
+                event = eventContract.event
                 view?.renderContent(eventContract.event)
                 view?.renderStar(eventContract.favorite)
             }.let { compositeDisposable.add(it) }
@@ -35,6 +38,12 @@ class EventDetailsPresenterImpl(
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe().let { compositeDisposable.add(it) }
+    }
+
+    override fun onRegisterClicked() {
+        event?.let {
+            view?.register(it.link)
+        }
     }
 
     override fun onDestroy() {

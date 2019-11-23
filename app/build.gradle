@@ -63,4 +63,6 @@ dependencies {
     kapt "android.arch.persistence.room:compiler:2.2.2"
 
     implementation 'com.squareup.picasso:picasso:2.71828'
+
+    implementation "androidx.browser:browser:1.0.0"
 }
