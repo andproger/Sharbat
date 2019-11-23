@@ -12,5 +12,11 @@ fun Date.toTimeText(): String {
 }
 
 fun String.toDate(): Date {
-    return Date()
+    //return Date()
+    val str = this
+    return SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).parse(str)!!
+}
+
+fun Date.toDateString(): String {
+    return SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(this);
 }
