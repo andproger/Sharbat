@@ -6,6 +6,7 @@ import com.example.sharbat.domain.interactors.events.RefreshEventsInteractor
 import com.example.sharbat.presentation.fetures.events.BaseEventsPresenter
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import java.util.*
 
 class AllEventsPresenterImpl(
     getEventsInteractor: GetEventsInteractor,
@@ -16,6 +17,27 @@ class AllEventsPresenterImpl(
 
     override fun onRefresh() {
         refresh()
+    }
+
+    override fun onFilterDateClicked() {
+        view?.showDatePickerDialog(selectedFilterDate)
+    }
+
+    override fun onFilterTypeClicked() {
+        view?.showTypePickerDialog()
+    }
+
+    override fun onFilterPlaceClicked() {
+        view?.showPlacePickerDialog()
+    }
+
+    override fun onDateSelected(time: Date?) {
+        time?.let { date ->
+            selectedFilterDate = date
+
+            view?.showSelectedDate(selectedFilterDate)
+            view?.showEvents(events.withFilters().map { it.toViewState() })
+        }
     }
 
     private fun refresh() {
