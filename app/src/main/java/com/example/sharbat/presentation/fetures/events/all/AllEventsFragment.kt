@@ -12,7 +12,6 @@ import com.example.sharbat.presentation.fetures.events.EventsView
 import kotlinx.android.synthetic.main.fragment_all_events.*
 import java.util.*
 
-
 class AllEventsFragment : BaseEventsFragment<AllEventsView, AllEventsPresenter>() {
 
     override fun contentResId() = R.layout.fragment_all_events

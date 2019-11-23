@@ -4,13 +4,13 @@
 
     <item
         android:id="@+id/action_faq"
-        app:showAsAction="always"
         android:icon="@drawable/ic_faq"
-        android:title="faq"/>
+        android:title="faq"
+        app:showAsAction="always" />
 
     <item
         android:id="@+id/action_settings"
-        app:showAsAction="always"
         android:icon="@drawable/ic_settings"
-        android:title="settings"/>
+        android:title="settings"
+        app:showAsAction="ifRoom" />
 </menu>
