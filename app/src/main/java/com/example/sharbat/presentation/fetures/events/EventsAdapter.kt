@@ -10,7 +10,7 @@ import com.example.sharbat.presentation.utils.inflate
 import kotlinx.android.synthetic.main.item_event.view.*
 
 class EventsAdapter(
-    private val onItemClicked: (Int) -> Unit
+    private val onItemClicked: (String) -> Unit
 ) : RecyclerView.Adapter<EventsAdapter.EventViewHolder>() {
 
     private val items = mutableListOf<EventViewState>()
@@ -39,7 +39,7 @@ class EventsAdapter(
 
     inner class EventViewHolder(
         itemView: View,
-        val onItemClicked: (Int) -> Unit
+        val onItemClicked: (String) -> Unit
     ) : RecyclerView.ViewHolder(itemView) {
 
         private var model: EventViewState? = null

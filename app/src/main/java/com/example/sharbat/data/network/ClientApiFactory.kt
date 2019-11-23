@@ -10,7 +10,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class ClientApiFactory {
 
     companion object {
-        private const val BASE_URL = "http://192.168.43.81:8000"
+        private const val BASE_URL = "http://192.168.43.81:8000"//"https://andryproger.000webhostapp.com"//"https://andryproger.000webhostapp.com"//"http://192.168.43.81:8000"
 
         fun createRestApi() = createRetrofit(
             createOkHttpClient(createLogging())
