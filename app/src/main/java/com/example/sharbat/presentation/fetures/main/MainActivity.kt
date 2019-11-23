@@ -21,7 +21,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupNavigation() {
         val tabs = listOf(MyEventsFragment(), AllEventsFragment(), AccountFragment())
-
         viewPager.adapter = CustomPagerAdapter(supportFragmentManager, tabs)
         viewPager.offscreenPageLimit = tabs.size - 1
         viewPager.addOnPageChangeListener(object : ViewPager.SimpleOnPageChangeListener() {
