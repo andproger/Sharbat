@@ -47,6 +47,10 @@ class CustomProviderImpl(
         )
     }
 
+    override fun providerGetEventInteractor(): GetEventInteractor {
+        return GetEventInteractorImpl(eventsRepository)
+    }
+
     fun setupAppDatabase(context: Context) {
         appDatabase = Room.databaseBuilder(context, AppDatabase::class.java, "database")
             .build()

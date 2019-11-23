@@ -12,7 +12,7 @@ interface EventDao {
     fun saveEvents(list: List<EventModel>)
 
     @Query("SELECT * FROM EventModel")
-    fun getEvents(): Flowable<List<EventModel>>
+    fun getEvents(): Flowable<List<EventModel>> //todo
 
     @Query("SELECT * FROM EventModel WHERE id = :id")
     fun getEvent(id: String): Maybe<EventModel>

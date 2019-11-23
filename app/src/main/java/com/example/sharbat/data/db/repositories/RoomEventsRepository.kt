@@ -6,6 +6,7 @@ import com.example.sharbat.domain.entities.Event
 import com.example.sharbat.domain.gateways.EventsRepository
 import com.example.sharbat.domain.utils.toDate
 import io.reactivex.Observable
+import io.reactivex.Single
 
 class RoomEventsRepository(
     private val dao: EventDao
@@ -18,6 +19,12 @@ class RoomEventsRepository(
     override fun getAllWithUpdates(): Observable<List<Event>> {
         return dao.getEvents().toObservable().map { list ->
             list.map { it.toCore() }
+        }
+    }
+
+    override fun getByIdWithUpdates(id: String): Single<Event> {
+        return dao.getEvent(id).flatMapSingle {
+            Single.just(it.toCore())
         }
     }
 
