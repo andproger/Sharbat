@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 class EventResponse(
     @SerializedName("id")
-    val id: Int,
+    val id: String,
 
     @SerializedName("title")
     val title: String,
@@ -16,8 +16,14 @@ class EventResponse(
     val image: String,
 
     @SerializedName("time_stamp")
-    val timeStamp: Long,
+    val timeStamp: String,
 
     @SerializedName("time_event")
-    val timeEvent: Long
+    val timeEvent: String,
+
+    @SerializedName("place")
+    val place: String,
+
+    @SerializedName("link")
+    val link: String?
 )

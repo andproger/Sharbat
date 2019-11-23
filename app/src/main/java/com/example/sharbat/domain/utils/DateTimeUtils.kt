@@ -1,4 +1,4 @@
-package com.example.sharbat.presentation.utils
+package com.example.sharbat.domain.utils
 
 import java.util.*
 
@@ -11,4 +11,8 @@ fun Date.toDateText(): String {
 fun Date.toTimeText(): String {
     //TODO
     return "16:00"
+}
+
+fun String.toDate(): Date {
+    return Date()
 }

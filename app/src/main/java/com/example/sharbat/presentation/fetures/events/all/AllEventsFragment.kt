@@ -33,6 +33,10 @@ class AllEventsFragment : BaseEventsFragment<AllEventsView, AllEventsPresenter>(
             override fun showProgress(show: Boolean) {
                 swipeRefreshLayout.isRefreshing = show
             }
+
+            override fun showError() {
+                //TODO
+            }
         }
     }
 

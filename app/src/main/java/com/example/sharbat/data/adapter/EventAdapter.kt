@@ -9,7 +9,7 @@ import com.example.sharbat.data.db.model.EventModel
 
 
 class EventAdapter(
-    val onItemClicked: (Int) -> Unit
+    val onItemClicked: (String) -> Unit
 ) : RecyclerView.Adapter<EventAdapter.EventViewHolder>() {
 
     private val items = mutableListOf<EventModel>()
@@ -37,7 +37,7 @@ class EventAdapter(
 
     inner class EventViewHolder(
         itemView: View,
-        val onItemClicked: (Int) -> Unit
+        val onItemClicked: (String) -> Unit
     ) : RecyclerView.ViewHolder(itemView) {
         private var model: EventModel? = null
 

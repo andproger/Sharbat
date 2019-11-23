@@ -4,5 +4,5 @@ interface EventsView {
 
     fun showEvents(events: List<EventViewState>)
 
-    fun openEvent(id: Int)
+    fun openEvent(id: String)
 }

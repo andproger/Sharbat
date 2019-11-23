@@ -1,5 +1,6 @@
 package com.example.sharbat.presentation.fetures.events.all
 
+import com.example.sharbat.domain.interactors.events.FailedResult
 import com.example.sharbat.domain.interactors.events.GetEventsInteractor
 import com.example.sharbat.domain.interactors.events.RefreshEventsInteractor
 import com.example.sharbat.presentation.fetures.events.BaseEventsPresenter
@@ -26,9 +27,10 @@ class AllEventsPresenterImpl(
                     refreshing = true
                     view?.showProgress(refreshing)
                 }
-                .subscribe {
+                .subscribe { result ->
                     refreshing = false
                     view?.showProgress(refreshing)
+                    if (result is FailedResult) view?.showError()
                 }.let { compositeDisposable.add(it) }
         }
     }
