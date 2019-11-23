@@ -1,7 +1,11 @@
 package com.example.sharbat.presentation.fetures.main
 
+import android.app.PendingIntent.getActivity
 import android.os.Bundle
 import android.view.Menu
+import android.view.Window
+import android.view.WindowManager
+import androidx.annotation.ColorRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
 import com.example.sharbat.R
@@ -20,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(findViewById(R.id.toolbar))
         supportActionBar!!.setDisplayShowTitleEnabled(false)
         setupNavigation()
+        setStatusBarColor(R.color.colorPrimary)
     }
 
     private fun setupNavigation() {
@@ -31,7 +36,7 @@ class MainActivity : AppCompatActivity() {
                 bottomNavigation.menu.getItem(position).isChecked = true
             }
         })
-
+        bottomNavigation
         bottomNavigation.setOnNavigationItemSelectedListener { item ->
             viewPager.currentItem = when (item.itemId) {
                 R.id.menu_star -> 0
@@ -46,5 +51,12 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.toolbar_menu, menu)
         return true
+    }
+
+    protected fun setStatusBarColor(@ColorRes id: Int) {
+        val window: Window = getWindow()
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+        window.setStatusBarColor(resources.getColor(id))
     }
 }
