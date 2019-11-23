@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        setSupportActionBar(findViewById(R.id.toolbar))
         setupNavigation()
     }
 
@@ -42,7 +43,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.activity_main_bottom, menu)
+        menuInflater.inflate(R.menu.toolbar_menu, menu)
         return true
     }
 }
