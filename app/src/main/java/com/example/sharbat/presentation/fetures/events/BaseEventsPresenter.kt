@@ -13,6 +13,9 @@ abstract class BaseEventsPresenter<V : EventsView>(
     private val getEventsInteractor: GetEventsInteractor
 ) : EventsPresenter<V> {
 
+    protected var events: List<Event> = listOf()
+    protected var selectedFilterDate: Date? = null
+
     protected var view: V? = null
     protected val compositeDisposable = CompositeDisposable()
 
@@ -21,7 +24,9 @@ abstract class BaseEventsPresenter<V : EventsView>(
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe { events ->
-                val eventsViewState = events.map { it.toViewState() }
+                this.events = events
+
+                val eventsViewState = events.withFilters().map { it.toViewState() }
 
                 view?.showEvents(eventsViewState)
             }.let { compositeDisposable.add(it) }
@@ -47,4 +52,12 @@ abstract class BaseEventsPresenter<V : EventsView>(
         eventTime.toTimeText(),
         place
     )
+
+    protected fun List<Event>.withFilters(): List<Event> {
+        return selectedFilterDate?.let { date ->
+            this.filter { event ->
+                event.eventTime.time >= date.time
+            }
+        } ?: this
+    }
 }
