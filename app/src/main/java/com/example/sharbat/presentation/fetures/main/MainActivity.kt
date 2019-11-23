@@ -1,13 +1,14 @@
 package com.example.sharbat.presentation.fetures.main
 
 import android.os.Bundle
+import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
 import com.example.sharbat.R
 import com.example.sharbat.data.adapter.CustomPagerAdapter
+import com.example.sharbat.presentation.fetures.account.AccountFragment
 import com.example.sharbat.presentation.fetures.events.all.AllEventsFragment
 import com.example.sharbat.presentation.fetures.events.my.MyEventsFragment
-import com.example.sharbat.presentation.fetures.account.AccountFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -31,12 +32,17 @@ class MainActivity : AppCompatActivity() {
 
         bottomNavigation.setOnNavigationItemSelectedListener { item ->
             viewPager.currentItem = when (item.itemId) {
-                R.id.menu_my_events -> 0
-                R.id.menu_all_events -> 1
+                R.id.menu_star -> 0
+                R.id.menu_crop -> 1
                 R.id.menu_account -> 2
                 else -> -1
             }
             false
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.activity_main_bottom, menu)
+        return true
     }
 }
