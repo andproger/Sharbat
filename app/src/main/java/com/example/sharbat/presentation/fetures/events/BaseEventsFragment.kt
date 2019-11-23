@@ -11,7 +11,6 @@ import com.example.sharbat.presentation.app.App
 import com.example.sharbat.presentation.fetures.details.EventDetailsActivity
 import kotlinx.android.synthetic.main.fragment_all_events.*
 
-
 abstract class BaseEventsFragment<V : EventsView, P : EventsPresenter<V>> : Fragment(), EventsView {
 
     protected var presenter: P? = null
@@ -22,8 +21,12 @@ abstract class BaseEventsFragment<V : EventsView, P : EventsPresenter<V>> : Frag
     }
 
     override fun openEvent(id: String) {
-        startActivity(Intent(context,
-            EventDetailsActivity::class.java).putExtra("id", id))
+        startActivity(
+            Intent(
+                context,
+                EventDetailsActivity::class.java
+            ).putExtra("id", id)
+        )
     }
 
     override fun onCreateView(

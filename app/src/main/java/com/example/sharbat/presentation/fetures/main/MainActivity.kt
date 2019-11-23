@@ -1,6 +1,5 @@
 package com.example.sharbat.presentation.fetures.main
 
-import android.app.PendingIntent.getActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.Window
@@ -14,7 +13,6 @@ import com.example.sharbat.presentation.fetures.account.AccountFragment
 import com.example.sharbat.presentation.fetures.events.all.AllEventsFragment
 import com.example.sharbat.presentation.fetures.events.my.MyEventsFragment
 import kotlinx.android.synthetic.main.activity_main.*
-
 
 class MainActivity : AppCompatActivity() {
 
