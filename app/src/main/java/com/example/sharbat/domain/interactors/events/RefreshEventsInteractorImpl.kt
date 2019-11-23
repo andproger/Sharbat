@@ -15,6 +15,7 @@ class RefreshEventsInteractorImpl(
 
     override fun refresh(): Single<RefreshResult> {
         return clientApi.getAllEvents()
+                //TODO mock
             .onErrorReturn {
                 listOf(
                     EventResponse(

@@ -40,7 +40,8 @@ class CustomProviderImpl(
 
     override fun provideGetMyEventsInteractor(): GetEventsInteractor {
         return GetMyEventsInteractorImpl(
-            eventsRepository
+            eventsRepository,
+            favoriteEventsRepository
         )
     }
 
