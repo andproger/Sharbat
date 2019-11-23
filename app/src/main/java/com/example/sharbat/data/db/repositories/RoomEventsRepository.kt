@@ -5,6 +5,8 @@ import com.example.sharbat.data.db.model.EventModel
 import com.example.sharbat.domain.entities.Event
 import com.example.sharbat.domain.gateways.EventsRepository
 import com.example.sharbat.domain.utils.toDate
+import com.example.sharbat.domain.utils.toDateString
+import com.example.sharbat.domain.utils.toDateText
 import io.reactivex.Observable
 import io.reactivex.Single
 
@@ -38,8 +40,8 @@ class RoomEventsRepository(
         id = id,
         title = title,
         text = text,
-        time_stamp = updateTime.toString(),
-        time_event = eventTime.toString(),
+        time_stamp = updateTime.toDateString(),
+        time_event = eventTime.toDateString(),
         image = image,
         place = place,
         link = link
