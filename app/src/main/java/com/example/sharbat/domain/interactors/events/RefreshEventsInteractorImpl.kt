@@ -4,21 +4,26 @@ import com.example.sharbat.data.network.ClientApi
 import com.example.sharbat.data.network.entity.EventResponse
 import com.example.sharbat.domain.entities.Event
 import com.example.sharbat.domain.gateways.EventsRepository
+import com.example.sharbat.domain.utils.toDate
 import io.reactivex.Completable
+import io.reactivex.Single
 
 class RefreshEventsInteractorImpl(
     private val clientApi: ClientApi,
     private val eventsRepository: EventsRepository
 ) : RefreshEventsInteractor {
 
-    override fun refresh(): Completable {
+    override fun refresh(): Single<RefreshResult> {
         return clientApi.getAllEvents()
-            .flatMapCompletable { response ->
-                val events = response.events.map { it.toCore() }
+            .map { response ->
+                val events = response.map { it.toCore() }
 
                 eventsRepository.save(events)
 
-                Completable.complete()
+                SuccessResult as RefreshResult
+            }.onErrorReturn {
+                //TODO handling
+                FailedResult(ErrorType.UNKNOWN_ERROR)
             }
     }
 
@@ -27,8 +32,9 @@ class RefreshEventsInteractorImpl(
         title = title,
         text = text,
         image = image,
-        eventTime = timeEvent,
-        updateTime = timeStamp,
-        place = "place FAKE"//TODO
+        eventTime = timeEvent.toDate(),
+        updateTime = timeStamp.toDate(),
+        place = place,
+        link = link
     )
 }

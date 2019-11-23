@@ -4,6 +4,7 @@ import com.example.sharbat.data.db.EventDao
 import com.example.sharbat.data.db.model.EventModel
 import com.example.sharbat.domain.entities.Event
 import com.example.sharbat.domain.gateways.EventsRepository
+import com.example.sharbat.domain.utils.toDate
 import io.reactivex.Observable
 
 class RoomEventsRepository(
@@ -27,16 +28,18 @@ class RoomEventsRepository(
         time_stamp = updateTime.toString(),
         time_event = eventTime.toString(),
         image = image,
-        place = place
+        place = place,
+        link = link
     )
 
     fun EventModel.toCore() = Event(
         id = id,
         title = title,
         text = text,
-        eventTime = time_event.toLong(),
-        updateTime = time_stamp.toLong(),
+        eventTime = time_event.toDate(),
+        updateTime = time_stamp.toDate(),
         image = image,
-        place = place
+        place = place,
+        link = link
     )
 }

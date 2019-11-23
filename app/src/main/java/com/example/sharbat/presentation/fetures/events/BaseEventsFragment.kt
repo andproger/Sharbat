@@ -18,7 +18,7 @@ abstract class BaseEventsFragment<V : EventsView, P : EventsPresenter<V>> : Frag
         adapter.update(events)
     }
 
-    override fun openEvent(id: Int) {
+    override fun openEvent(id: String) {
         //TODO
     }
 

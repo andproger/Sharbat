@@ -6,4 +6,6 @@ interface AllEventsView : EventsView {
     fun renderFilters()
 
     fun showProgress(show: Boolean)
+
+    fun showError()
 }
