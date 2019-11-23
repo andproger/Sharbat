@@ -1,9 +1,13 @@
 package com.example.sharbat.presentation.fetures.events
 
+import com.example.sharbat.domain.entities.Event
 import com.example.sharbat.domain.interactors.events.GetEventsInteractor
+import com.example.sharbat.presentation.utils.toDateText
+import com.example.sharbat.presentation.utils.toTimeText
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
+import java.util.*
 
 abstract class BaseEventsPresenter<V : EventsView>(
     private val getEventsInteractor: GetEventsInteractor
@@ -17,14 +21,9 @@ abstract class BaseEventsPresenter<V : EventsView>(
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe { events ->
-                val eventsViewState = events.map {
-                    with(it) {
-                        EventViewState(
-                            id,
-                            title,
-                            text
-                        )
-                    }
+                val eventsViewState = events.map { event ->
+                    val date = Date(event.eventTime)
+                    event.toViewState(date)
                 }
 
                 view?.showEvents(eventsViewState)
@@ -43,4 +42,12 @@ abstract class BaseEventsPresenter<V : EventsView>(
         view = null
         compositeDisposable.dispose()
     }
+
+    fun Event.toViewState(date: Date) = EventViewState(
+        id,
+        title,
+        date.toDateText(),
+        date.toTimeText(),
+        place
+    )
 }

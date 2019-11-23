@@ -65,16 +65,27 @@ class CustomProviderImpl(
                     listOf(
                         Event(
                             1,
+                            "1",
                             "",
-                            "",
+                            "p1",
                             "",
                             1L,
                             1L
                         ),
                         Event(
                             1,
+                            "2",
                             "",
+                            "p2",
                             "",
+                            1L,
+                            1L
+                        ),
+                        Event(
+                            1,
+                            "3",
+                            "",
+                            "p3",
                             "",
                             1L,
                             1L

@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.sharbat.R
 import com.example.sharbat.presentation.utils.DiffUtilCallback
 import com.example.sharbat.presentation.utils.inflate
+import kotlinx.android.synthetic.main.item_event.view.*
 
 class EventsAdapter(
     private val onItemClicked: (Int) -> Unit
@@ -59,7 +60,10 @@ class EventsAdapter(
         private fun onModelUpdated() {
             model?.let { model ->
                 itemView.apply {
-                    //todo update view
+                    textViewTitle.text = model.title
+                    textViewDate.text = model.date
+                    textViewTime.text = model.time
+                    textViewPlace.text = model.place
                 }
             }
         }

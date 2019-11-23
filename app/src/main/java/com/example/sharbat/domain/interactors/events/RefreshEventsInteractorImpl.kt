@@ -1,6 +1,5 @@
 package com.example.sharbat.domain.interactors.events
 
-import com.example.sharbat.data.db.model.EventModel
 import com.example.sharbat.data.network.ClientApi
 import com.example.sharbat.data.network.entity.EventResponse
 import com.example.sharbat.domain.entities.Event
@@ -29,6 +28,7 @@ class RefreshEventsInteractorImpl(
         text = text,
         image = image,
         eventTime = timeEvent,
-        updateTime = timeStamp
+        updateTime = timeStamp,
+        place = "place FAKE"//TODO
     )
 }
