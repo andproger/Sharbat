@@ -19,6 +19,7 @@ class PostActivity : AppCompatActivity() {
         val eventModel: EventModel
         intent.extras!!.get("id").toString() //todo get from database
         (findViewById<TextView>(R.id.timeEvent)).text = eventModel.time_event
+        (findViewById<TextView>(R.id.titleEvent)).text = eventModel.title
         (findViewById<TextView>(R.id.whereEvent)).text = eventModel.place
         (findViewById<TextView>(R.id.textEvent)).text = eventModel.text
         Picasso.get().load(eventModel.image).into((findViewById<ImageView>(R.id.imageEvent)))
