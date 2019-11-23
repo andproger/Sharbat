@@ -15,51 +15,6 @@ class RefreshEventsInteractorImpl(
 
     override fun refresh(): Single<RefreshResult> {
         return clientApi.getAllEvents()
-                //TODO mock
-            .onErrorReturn {
-                listOf(
-                    EventResponse(
-                        "1",
-                        "1",
-                        "1",
-                        "https://game-tournaments.com/media/logo/t13366.png",
-                        "1",
-                        "1",
-                        "1",
-                        "1"
-                    ),
-                    EventResponse(
-                        "2",
-                        "2",
-                        "2",
-                        "https://game-tournaments.com/media/logo/t13366.png",
-                        "1",
-                        "1",
-                        "1",
-                        "1"
-                    ),
-                    EventResponse(
-                        "3",
-                        "1",
-                        "1",
-                        "https://game-tournaments.com/media/logo/t13366.png",
-                        "1",
-                        "1",
-                        "1",
-                        "1"
-                    ),
-                    EventResponse(
-                        "4",
-                        "2",
-                        "2",
-                        "https://game-tournaments.com/media/logo/t13366.png",
-                        "1",
-                        "1",
-                        "1",
-                        "1"
-                    )
-                )
-            }
             .map { response ->
                 val events = response.map { it.toCore() }
 
