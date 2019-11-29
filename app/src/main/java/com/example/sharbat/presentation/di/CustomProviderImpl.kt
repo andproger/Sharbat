@@ -7,11 +7,11 @@ import com.example.sharbat.data.db.repositories.RoomEventsRepository
 import com.example.sharbat.data.db.repositories.RoomFavoriteEventsRepository
 import com.example.sharbat.data.network.ClientApiFactory
 import com.example.sharbat.data.network.ClientApi
-import com.example.sharbat.domain.entities.Event
 import com.example.sharbat.domain.gateways.EventsRepository
 import com.example.sharbat.domain.gateways.FavoriteEventsRepository
 import com.example.sharbat.domain.interactors.events.*
-import io.reactivex.Observable
+import com.example.sharbat.domain.interactors.events.favorite.MarkAsFavoriteInteractor
+import com.example.sharbat.domain.interactors.events.favorite.MarkAsFavoriteInteractorImpl
 
 class CustomProviderImpl(
     context: Context

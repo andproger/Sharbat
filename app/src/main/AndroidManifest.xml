@@ -16,13 +16,13 @@
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
 
         <activity
-            android:name=".presentation.fetures.details.EventDetailsActivity"
+            android:name=".presentation.features.details.EventDetailsActivity"
             android:screenOrientation="portrait">
 
         </activity>
 
         <activity
-            android:name=".presentation.fetures.launcher.LauncherActivity"
+            android:name=".presentation.features.launcher.LauncherActivity"
             android:screenOrientation="portrait"
             android:theme="@style/SplashTheme">
             <intent-filter>
@@ -33,7 +33,7 @@
         </activity>
 
         <activity
-            android:name=".presentation.fetures.main.MainActivity"
+            android:name=".presentation.features.main.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>
